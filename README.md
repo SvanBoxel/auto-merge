@@ -1,6 +1,6 @@
 # auto-merge
 
-> A GitHub App built with [Probot](https://probot.github.io) that automatically merged your PR when everything is ready.
+> A GitHub App built with [Probot](https://probot.github.io) that automatically merges your PR when everything is green.
 
 ## How it works
 Code reviews often rely on three aspects: The submitter of the PR, the reviewers, and CI. Writing the code, submitting the PR, and reviewing the PR is a manual process that needs human eyes and brains. The process of CI, however, is something we automate for a reason. It is the place where we do sanity checks and make sure nothing terrible happens to our beautiful software projects. And for a good reason.  
