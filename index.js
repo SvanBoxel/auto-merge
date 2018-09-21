@@ -22,6 +22,7 @@ module.exports = app => {
 
     if (combinedState !== 'success') {
       context.log.info(`Combined status for ${statusDescription} is "${combinedState}", not merging.`)
+      return
     }
 
     const result = await context.github.search.issues({q: `${ref}+type:pr`})
@@ -33,10 +34,12 @@ module.exports = app => {
 
     if (reviews.length !== 0) {
       context.log.info(`PR #${number} isn't reviewed yet, not merging`)
+      return
     }
 
     if (!reviews.every(review => review.state === 'APPROVED')) {
       context.log.info(`PR #${number} isn't approved by all reviewers yet. Not merging`)
+      return
     }
 
     if (pr.data.mergeable) {

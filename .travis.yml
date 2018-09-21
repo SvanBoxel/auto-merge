@@ -1,6 +1,28 @@
-sudo: false
 language: node_js
+cache:
+  directories:
+    - $HOME/.npm
 node_js:
-  - "8.3"
-notifications:
-  disabled: true
+  - lts/*
+
+stages:
+  - test
+  - name: release
+    if: branch = master AND type IN (push)
+
+# addons:
+#   sonarcloud:
+#     organization: "svanboxel-github"
+    
+jobs:
+  include:
+    - stage: test
+      script: 
+        - npm run test:ci
+        # - sonar-scanner
+    # - stage: release
+    #   script: npm run semantic-release
+    #   deploy:
+    #     script: scripts/deploy.sh
+    #     provider: script
+    #     skip_cleanup: true
