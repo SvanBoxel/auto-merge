@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/SvanBoxel/auto-merge.svg?branch=master)](https://travis-ci.com/SvanBoxel/auto-merge)
+[![codecov](https://codecov.io/gh/SvanBoxel/auto-merge/branch/master/graph/badge.svg)](https://codecov.io/gh/SvanBoxel/auto-merge)
+
 # auto-merge
 
 > A GitHub App built with [Probot](https://probot.github.io) that automatically merges your PR when everything is green.
