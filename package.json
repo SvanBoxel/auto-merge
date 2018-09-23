@@ -18,12 +18,13 @@
     "lint": "standard --fix",
     "test": "jest && standard",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage",
-    "test:ci": "jest"
+    "test:ci": "jest && codecov"
   },
   "dependencies": {
     "probot": "^7.0.0"
   },
   "devDependencies": {
+    "codecov": "3.1.0",
     "jest": "^22.4.3",
     "nodemon": "^1.17.2",
     "smee-client": "^1.0.2",
