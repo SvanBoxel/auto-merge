@@ -17,8 +17,8 @@
     "start": "probot run ./index.js",
     "lint": "standard --fix",
     "test": "jest && standard",
-    "test:watch": "jest --watch --notify --notifyMode=change --coverage",
-    "test:ci": "jest && codecov"
+    "test:watch": "jest --watch",
+    "test:ci": "jest --coverage && codecov"
   },
   "dependencies": {
     "probot": "7.0.0"
