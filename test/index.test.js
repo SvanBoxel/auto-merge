@@ -1,42 +1,42 @@
 const { Application } = require('probot')
-// Requiring our app implementation
-const myProbotApp = require('..')
+const plugin = require('../index')
+const autoMerge = require('../lib/auto-merge')
+const issueOpenedEventPayload = require('./fixtures/issues.opened.json')
+const statusEventPayload = require('./fixtures/status')
 
-const issuesOpenedPayload = require('./fixtures/issues.opened.json')
+jest.mock('../lib/auto-merge', (context) => jest.fn())
 
-test('that we can run tests', () => {
-  // your real tests go here
-  expect(1 + 2 + 3).toBe(6)
+describe('auto-merge Probot Application', () => {
+  let app
+  let github
+
+  beforeEach(() => {
+    app = new Application()
+    app.load(plugin)
+    app.auth = () => Promise.resolve(github)
+  })
+
+  describe('Delete branch functionality', () => {
+    describe('It does not receive the `status` event', () => {
+      beforeEach(async () => {
+        const event = 'issue.open'
+        await app.receive({ event, payload: issueOpenedEventPayload })
+      })
+
+      it('should NOT call the autoMerge method', () => {
+        expect(autoMerge).not.toHaveBeenCalled()
+      })
+    })
+
+    describe('It receives the `status` event', () => {
+      beforeEach(async () => {
+        const event = 'status'
+        await app.receive({ event, payload: statusEventPayload })
+      })
+
+      it('should call the autoMerge method', () => {
+        expect(autoMerge).toHaveBeenCalled()
+      })
+    })
+  })
 })
-
-// describe('My Probot app', () => {
-//   let app, github
-
-//   beforeEach(() => {
-//     app = new Application()
-//     // Initialize the app based on the code from index.js
-//     app.load(myProbotApp)
-//     // This is an easy way to mock out the GitHub API
-//     github = {
-//       issues: {
-//         createComment: jest.fn().mockReturnValue(Promise.resolve({}))
-//       }
-//     }
-//     // Passes the mocked out GitHub API into out app instance
-//     app.auth = () => Promise.resolve(github)
-//   })
-
-//   test('creates a comment when an issue is opened', async () => {
-//     // Simulates delivery of an issues.opened webhook
-//     await app.receive({
-//       name: 'issues.opened',
-//       payload: issuesOpenedPayload
-//     })
-
-//     // This test passes if the code in your index.js file calls `context.github.issues.createComment`
-//     expect(github.issues.createComment).toHaveBeenCalled()
-//   })
-// })
-
-// For more information about testing with Jest see:
-// https://facebook.github.io/jest/
