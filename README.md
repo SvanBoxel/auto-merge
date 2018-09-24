@@ -2,6 +2,8 @@
 [![codecov](https://codecov.io/gh/SvanBoxel/auto-merge/branch/master/graph/badge.svg)](https://codecov.io/gh/SvanBoxel/auto-merge)
 [![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=SvanBoxel_auto-merge&metric=alert_status)](https://sonarcloud.io/dashboard?id=SvanBoxel_auto-merge)
 
+> ⚠️This little baby is still under development. Stay tuned for the first stable release. ⚠️
+
 # auto-merge
 
 > A GitHub App built with [Probot](https://probot.github.io) that automatically merges your PR when everything is green.
