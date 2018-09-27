@@ -92,7 +92,7 @@ describe('autoMerge function', () => {
 
         describe('PR does NOT have any reviewers assigned', () => {
           beforeEach(async () => {
-            context.github.pullRequests.getReviews.mockReturnValue(Promise.resolve([]))
+            context.github.pullRequests.getReviews.mockReturnValue(Promise.resolve({ data: [] }))
             await autoMerge(context)
           })
 
@@ -104,14 +104,14 @@ describe('autoMerge function', () => {
         describe('PR is NOT approved by all reviewers', () => {
           beforeEach(async () => {
             const reviews = [
-              getReviewsResponse[0],
+              getReviewsResponse.data[0],
               {
-                ...getReviewsResponse[1],
+                ...getReviewsResponse.data[1],
                 state: 'PENDING'
               }
             ]
 
-            context.github.pullRequests.getReviews.mockReturnValue(reviews)
+            context.github.pullRequests.getReviews.mockReturnValue({ data: reviews })
             await autoMerge(context)
           })
 
