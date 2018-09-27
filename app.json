@@ -1,0 +1,24 @@
+{
+  "name": "auto-merge",
+  "scripts": {
+  },
+  "env": {
+    "APP_ID": {
+      "required": true
+    },
+    "PRIVATE_KEY": {
+      "required": true
+    },
+    "WEBHOOK_SECRET": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
