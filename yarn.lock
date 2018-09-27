@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@octokit/rest@^15.11.0":
-  version "15.12.0"
-  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-15.12.0.tgz#458efa0466ce3b257726bffff869a06da026e954"
+"@octokit/rest@^15.6.0":
+  version "15.12.1"
+  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-15.12.1.tgz#f0dc169f336f8fd05ae8d8c83371b2f0c0dd8de1"
   dependencies:
     before-after-hook "^1.1.0"
     btoa-lite "^1.0.0"
@@ -30,12 +30,12 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
-"@octokit/webhooks@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@octokit/webhooks/-/webhooks-5.0.2.tgz#fbf31398f0d235199591cef3c4a8fef7073c6073"
+"@octokit/webhooks@^3.1.1":
+  version "3.1.1"
+  resolved "http://registry.npmjs.org/@octokit/webhooks/-/webhooks-3.1.1.tgz#589830d3a51489b6d689094f5355b570c142c086"
   dependencies:
     buffer-equal-constant-time "^1.0.1"
-    debug "^4.0.0"
+    debug "^3.1.0"
 
 abab@^2.0.0:
   version "2.0.0"
@@ -496,9 +496,9 @@ body-parser@1.18.2:
     raw-body "2.3.2"
     type-is "~1.6.15"
 
-bottleneck@^2.8.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/bottleneck/-/bottleneck-2.11.0.tgz#d91e194ef071ddb88312f13454405e52067ea9cc"
+bottleneck@^2.4.0:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/bottleneck/-/bottleneck-2.11.1.tgz#432d075ea2ee74802666f2556f0f07f12a84e618"
 
 boxen@^1.2.1:
   version "1.3.0"
@@ -957,12 +957,6 @@ debug@3.1.0:
 debug@^3.1.0:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.5.tgz#c2418fbfd7a29f4d4f70ff4cea604d4b64c46407"
-  dependencies:
-    ms "^2.1.1"
-
-debug@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.0.1.tgz#f9bb36d439b8d1f0dd52d8fb6b46e4ebb8c1cd5b"
   dependencies:
     ms "^2.1.1"
 
@@ -2136,10 +2130,6 @@ is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
 
-is-base64@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/is-base64/-/is-base64-0.0.5.tgz#39ecd12e937c667edd3b17fa677036825483b477"
-
 is-binary-path@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/is-binary-path/-/is-binary-path-1.0.1.tgz#75f16642b480f187a711c814161fd3a4a7655898"
@@ -2474,7 +2464,7 @@ jest-changed-files@^22.2.0:
   dependencies:
     throat "^4.0.0"
 
-jest-cli@^22.4.4:
+jest-cli@^22.4.3:
   version "22.4.4"
   resolved "https://registry.yarnpkg.com/jest-cli/-/jest-cli-22.4.4.tgz#68cd2a2aae983adb1e6638248ca21082fd6d9e90"
   dependencies:
@@ -2720,12 +2710,12 @@ jest-worker@^22.2.2, jest-worker@^22.4.3:
   dependencies:
     merge-stream "^1.0.1"
 
-jest@^22.4.3:
-  version "22.4.4"
-  resolved "https://registry.yarnpkg.com/jest/-/jest-22.4.4.tgz#ffb36c9654b339a13e10b3d4b338eb3e9d49f6eb"
+jest@22.4.3:
+  version "22.4.3"
+  resolved "http://registry.npmjs.org/jest/-/jest-22.4.3.tgz#2261f4b117dc46d9a4a1a673d2150958dee92f16"
   dependencies:
     import-local "^1.0.0"
-    jest-cli "^22.4.4"
+    jest-cli "^22.4.3"
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -3292,9 +3282,9 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
-nodemon@^1.17.2:
-  version "1.18.4"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.4.tgz#873f65fdb53220eb166180cf106b1354ac5d714d"
+nodemon@1.17.2:
+  version "1.17.2"
+  resolved "http://registry.npmjs.org/nodemon/-/nodemon-1.17.2.tgz#17c0062629610e03dd01241c576f1c4068da9fdd"
   dependencies:
     chokidar "^2.0.2"
     debug "^3.1.0"
@@ -3703,13 +3693,13 @@ private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
 
-probot@^7.0.0:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-7.1.2.tgz#0326524dc56b40b812e763bb5a33d98ae722d319"
+probot@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-7.0.0.tgz#54c54263d50dc0b5953c57fbccc5d8dd21c97f8c"
   dependencies:
-    "@octokit/rest" "^15.11.0"
-    "@octokit/webhooks" "^5.0.2"
-    bottleneck "^2.8.0"
+    "@octokit/rest" "^15.6.0"
+    "@octokit/webhooks" "^3.1.1"
+    bottleneck "^2.4.0"
     bunyan "^1.8.12"
     bunyan-format "^0.2.1"
     bunyan-sentry-stream "^1.1.0"
@@ -3719,7 +3709,6 @@ probot@^7.0.0:
     express "^4.16.2"
     express-async-errors "^3.0.0"
     hbs "^4.0.1"
-    is-base64 "0.0.5"
     js-yaml "^3.9.1"
     jsonwebtoken "^8.1.0"
     pkg-conf "^2.0.0"
@@ -4210,7 +4199,7 @@ slice-ansi@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
 
-smee-client@^1.0.2:
+smee-client@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/smee-client/-/smee-client-1.0.2.tgz#2b7e72d7ab383e5d6e4a17ae00cd07503cbcf25d"
   dependencies:
@@ -4358,7 +4347,7 @@ standard-engine@~7.0.0:
     minimist "^1.1.0"
     pkg-conf "^2.0.0"
 
-standard@^10.0.3:
+standard@10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/standard/-/standard-10.0.3.tgz#7869bcbf422bdeeaab689a1ffb1fea9677dd50ea"
   dependencies:
