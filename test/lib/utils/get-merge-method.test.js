@@ -8,7 +8,7 @@ describe('getMergeMethod function', () => {
       config: jest.fn().mockReturnValue(Promise.resolve({}))
     }
   })
-  
+
   describe('config method returns available merge method', () => {
     beforeEach(() => {
       merge_method = 'rebase'
