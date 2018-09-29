@@ -1,12 +1,12 @@
 const autoMerge = require('../../lib/auto-merge')
-const getMergeMethod = require('../../lib/utils/get-merge-method')
+const withConfig = require('../../lib/utils/with-config')
 const findPRWithRef = require('../../lib/utils/find-pr-with-ref')
 const statusEventPayload = require('../fixtures/status.json')
 const getPullRequestResponse = require('../fixtures/pull_request.json')
 const getReviewsResponse = require('../fixtures/get_reviews.json')
 
 jest.mock('../../lib/utils/find-pr-with-ref', () => jest.fn())
-jest.mock('../../lib/utils/get-merge-method', () => jest.fn())
+jest.mock('../../lib/utils/with-config', () => jest.fn())
 
 describe('autoMerge function', () => {
   let context
@@ -146,7 +146,7 @@ describe('autoMerge function', () => {
             let merge_method
             beforeEach(async () => {
               merge_method = 'squash'
-              getMergeMethod.mockReturnValue(Promise.resolve(merge_method))
+              withConfig.mockReturnValue((func) => func({ merge_method }))
               findPRWithRef.mockReturnValue({
                 ...getPullRequestResponse.data,
                 mergeable: true
