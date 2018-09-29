@@ -42,36 +42,36 @@ describe('getConfigProp function', () => {
     it('should return a function that returns the config object', async () => {
       const result = await extractConfig(context, options)
       expect(result).toBe(config)
-    });
+    })
 
     it('should return an updated config object with changes', async () => {
       const result = await extractConfig(context, options)
       expect(result).toBe(config)
-      
+
       const newConfig = { ...config }
-      newConfig.b = faker.random.alphaNumeric();
+      newConfig.b = faker.random.alphaNumeric()
       context.config = jest.fn().mockReturnValue(Promise.resolve(newConfig))
       const newResult = await extractConfig(context, options)
       expect(newResult).toBe(newConfig)
-    });
+    })
   })
 
   describe('caching is enabled (default)', () => {
     it('should return the config object', async () => {
       const result = await extractConfig(context, options)
       expect(result).toBe(config)
-    });
+    })
 
     it('should return the same config object without changes', async () => {
       const result = await extractConfig(context)
       expect(result).toBe(config)
-      
+
       const newConfig = { ...config }
-      newConfig.b = faker.random.alphaNumeric();
+      newConfig.b = faker.random.alphaNumeric()
       context.config = jest.fn().mockReturnValue(Promise.resolve(newConfig))
       const newResult = await extractConfig(context)
       expect(newResult).toBe(config)
-    });
+    })
 
     describe('cache is invalidated after ttl', () => {
       beforeEach(() => {
@@ -82,25 +82,25 @@ describe('getConfigProp function', () => {
       it('should return an updated config object with changes', async (done) => {
         const result = await extractConfig(context, options)
         expect.assertions(3)
-        
+
         expect(result).toBe(config)
-        
+
         const newConfig = { ...config }
-        newConfig.b = faker.random.alphaNumeric();
+        newConfig.b = faker.random.alphaNumeric()
         context.config = jest.fn().mockReturnValue(Promise.resolve(newConfig))
 
         setTimeout(async () => { // Shouldn't update after < 1s
           const newResult = await extractConfig(context, options)
           expect(newResult).toBe(config)
-        }, 500);
+        }, 500)
 
         setTimeout(async () => { // Should update after > 1s
           const newResult = await extractConfig(context, options)
           expect(newResult).toBe(newConfig)
-        }, 1500);
+        }, 1500)
 
         setTimeout(done, 2000)
-      });
+      })
     })
   })
 })

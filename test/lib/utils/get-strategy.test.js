@@ -6,18 +6,18 @@ describe('getStrategy function', () => {
     beforeEach(() => {
       strategy = 'all'
     })
-    
+
     it('should return that strategy', () => {
       const result = getStrategy({ strategy })
       expect(result).toBe(strategy)
     })
   })
-  
+
   describe('config method returns unavailable strategy', () => {
     beforeEach(() => {
       strategy = 'foobar'
     })
-    
+
     it('should return "label"', () => {
       const result = getStrategy({ strategy })
       expect(result).toBe('label')
