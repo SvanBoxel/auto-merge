@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/SvanBoxel/auto-merge.svg?branch=master)](https://travis-ci.com/SvanBoxel/auto-merge)
 [![codecov](https://codecov.io/gh/SvanBoxel/auto-merge/branch/master/graph/badge.svg)](https://codecov.io/gh/SvanBoxel/auto-merge)
-[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=SvanBoxel_auto-merge&metric=alert_status)](https://sonarcloud.io/dashboard?id=SvanBoxel_auto-merge)
+[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=SvanBoxel_auto-merge&metric=alert_status)](https://sonarcloud.io/dashboard?id=SvanBoxel_auto-merge) [![Greenkeeper badge](https://badges.greenkeeper.io/SvanBoxel/auto-merge.svg)](https://greenkeeper.io/)
 
 > ⚠️This little baby is still under development. Stay tuned for the first stable release. ⚠️
 
