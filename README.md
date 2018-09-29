@@ -3,7 +3,7 @@
 [![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=SvanBoxel_auto-merge&metric=alert_status)](https://sonarcloud.io/dashboard?id=SvanBoxel_auto-merge) [![Greenkeeper badge](https://badges.greenkeeper.io/SvanBoxel/auto-merge.svg)](https://greenkeeper.io/)
 
 # Auto Merge PRs
-> A nifty little app built with [Probot](https://probot.github.io) that automatically merges your PRs when everything is green so you don't have to. 
+A nifty little app built with [Probot](https://probot.github.io) that automatically merges your PRs when everything is green so you don't have to. 
 
 ## How it works
 Code reviews often rely on three aspects: The submitter of the PR, the reviewers, and CI. Writing the code, submitting the PR, and reviewing the PR is a manual process that needs human eyes and brains. The process of CI, however, is something we automate for a reason. It is the place where we do sanity checks and make sure nothing terrible happens to our beautiful software projects. And for a good reason.  
@@ -17,6 +17,19 @@ This app does exactly that for you. As soon as your PR is approved, and CI passe
 This app also adheres to your branch (protection) settings. e.g., if you require at least two reviewers, it won't auto-merge the PR if only one reviewer approves it.
 
 ## Configuration
+In 3 steps this app can be used in your project.
+
+1. Go to [GitHub Apps](https://github.com/apps/auto-merge) and install this ProBot app.
+2. _(optional but recommended)_ create a `.github/auto-merge-settings.yml` file. (see template below) This config file supports two options:
+    - **merge_method** 
+    `merge`/`squash`/`rebase`, default: `merge`, [more info](https://help.github.com/articles/about-merge-methods-on-github/)
+    - **strategy**: `all`/`label`, default: `label`, apply this auto-merge functionality to all PRs, or only the PR with a `auto-merge` label
+3. Open a pull request and add the `auto-merge` label to your PR. (not needed if strategy is `all`)
+
+```YAML
+merge_method: 'squash' # merge/squash/rebase
+strategy: 'label' # all/label
+```
 
 ## Running it locally
 1. First, follow [these instructions](https://probot.github.io/docs/development/#configure-a-github-app) for making your own GitHub app.
