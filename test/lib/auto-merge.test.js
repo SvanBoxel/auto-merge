@@ -14,7 +14,7 @@ describe('autoMerge function', () => {
   let getPullRequest
   let getReviews
   let merge_method
-  let strategy 
+  let strategy
 
   beforeEach(() => {
     getCombinedStatus = jest.fn().mockReturnValue(Promise.resolve({ data: {} }))
@@ -27,6 +27,9 @@ describe('autoMerge function', () => {
       },
       payload: JSON.parse(JSON.stringify(statusEventPayload)),
       github: {
+        issues: {
+          edit: jest.fn()
+        },
         repos: {
           getCombinedStatusForRef: getCombinedStatus
         },
@@ -102,12 +105,12 @@ describe('autoMerge function', () => {
           beforeEach(async () => {
             withConfig.mockReturnValue((func) => func({ merge_method, strategy: 'label' }))
             await autoMerge(context)
-          });
+          })
 
           it('should log that label strategy is active and no "auto-merge"-label is found', () => {
             expect(context.log.info).toBeCalledWith(`Label strategy active, no \"auto-merge\"-label found on PR #${getPullRequestResponse.data.number}.`)
           })
-        });
+        })
 
         describe('PR does NOT have any reviewers assigned', () => {
           beforeEach(async () => {
@@ -176,6 +179,15 @@ describe('autoMerge function', () => {
                 number: getPullRequestResponse.data.number,
                 sha: context.payload.sha,
                 merge_method
+              })
+            })
+
+            it('should close the pr', () => {
+              expect(context.github.issues.edit).toBeCalledWith({
+                owner: context.payload.repository.owner.login,
+                repo: context.payload.repository.name,
+                number: getPullRequestResponse.data.number,
+                state: 'closed'
               })
             })
 
