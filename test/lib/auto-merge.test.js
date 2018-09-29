@@ -13,6 +13,8 @@ describe('autoMerge function', () => {
   let getCombinedStatus
   let getPullRequest
   let getReviews
+  let merge_method
+  let strategy 
 
   beforeEach(() => {
     getCombinedStatus = jest.fn().mockReturnValue(Promise.resolve({ data: {} }))
@@ -35,6 +37,10 @@ describe('autoMerge function', () => {
         }
       }
     }
+
+    merge_method = 'squash'
+    strategy = 'all'
+    withConfig.mockReturnValue((func) => func({ merge_method, strategy }))
   })
 
   describe('status state is NOT "success"', () => {
@@ -92,6 +98,17 @@ describe('autoMerge function', () => {
           findPRWithRef.mockReturnValue(getPullRequestResponse.data)
         })
 
+        describe('label strategy is active and no auto-merge label is applied', () => {
+          beforeEach(async () => {
+            withConfig.mockReturnValue((func) => func({ merge_method, strategy: 'label' }))
+            await autoMerge(context)
+          });
+
+          it('should log that label strategy is active and no "auto-merge"-label is found', () => {
+            expect(context.log.info).toBeCalledWith(`Label strategy active, no \"auto-merge\"-label found on PR #${getPullRequestResponse.data.number}.`)
+          })
+        });
+
         describe('PR does NOT have any reviewers assigned', () => {
           beforeEach(async () => {
             context.github.pullRequests.getReviews.mockReturnValue(Promise.resolve({ data: [] }))
@@ -143,10 +160,7 @@ describe('autoMerge function', () => {
           })
 
           describe('PR is mergeable', () => {
-            let merge_method
             beforeEach(async () => {
-              merge_method = 'squash'
-              withConfig.mockReturnValue((func) => func({ merge_method }))
               findPRWithRef.mockReturnValue({
                 ...getPullRequestResponse.data,
                 mergeable: true
