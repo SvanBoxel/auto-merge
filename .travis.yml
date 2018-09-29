@@ -10,19 +10,15 @@ stages:
   - name: release
     if: branch = master AND type IN (push)
 
-# addons:
-#   sonarcloud:
-#     organization: "svanboxel-github"
+addons:
+  sonarcloud:
+    organization: "svanboxel-github"
     
 jobs:
   include:
     - stage: test
       script: 
         - npm run test:ci
-        # - sonar-scanner
-    # - stage: release
-    #   script: npm run semantic-release
-    #   deploy:
-    #     script: scripts/deploy.sh
-    #     provider: script
-    #     skip_cleanup: true
+        - sonar-scanner
+    - stage: release
+      script: npm run semantic-release
