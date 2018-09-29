@@ -1,6 +1,6 @@
 {
   "name": "auto-merge",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A Probot app",
   "author": "Sebass van Boxel <svboxel@gmail.com>",
   "license": "ISC",
@@ -44,6 +44,15 @@
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "release": {
+    "prepare": [],
+    "verifyConditions": [
+      "@semantic-release/github"
+    ],
+    "publish": [
+      "@semantic-release/github"
+    ]
   },
   "nodemonConfig": {
     "exec": "npm start",
