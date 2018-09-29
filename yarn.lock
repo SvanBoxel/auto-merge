@@ -615,7 +615,7 @@ cache-base@^1.0.1:
     union-value "^1.0.0"
     unset-value "^1.0.0"
 
-cache-manager@^2.4.0:
+cache-manager@2.9.0, cache-manager@^2.4.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/cache-manager/-/cache-manager-2.9.0.tgz#5e1f6317ca1a25e40ddf365a7162757af152353e"
   dependencies:
