@@ -21,6 +21,7 @@
     "test:ci": "jest --coverage && codecov"
   },
   "dependencies": {
+    "cache-manager": "2.9.0",
     "probot": "7.0.0"
   },
   "devDependencies": {
