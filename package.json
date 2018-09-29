@@ -14,11 +14,12 @@
   ],
   "scripts": {
     "dev": "nodemon",
-    "start": "probot run ./index.js",
     "lint": "standard --fix",
-    "test": "jest && standard",
+    "semantic-release": "semantic-release",
+    "start": "probot run ./index.js",
+    "test:ci": "jest --coverage && codecov",
     "test:watch": "jest --watch",
-    "test:ci": "jest --coverage && codecov"
+    "test": "jest && standard"
   },
   "dependencies": {
     "cache-manager": "2.9.0",
@@ -29,6 +30,7 @@
     "faker": "4.1.0",
     "jest": "23.6.0",
     "nodemon": "1.18.4",
+    "semantic-release": "15.9.16",
     "smee-client": "1.0.2",
     "standard": "12.0.1"
   },
