@@ -1,1 +1,2 @@
 merge_method: 'merge' # merge/squash/rebase
+strategy: 'label' # all/label
