@@ -26,7 +26,7 @@
     "probot": "7.2.0"
   },
   "devDependencies": {
-    "codecov": "3.1.0",
+    "codecov": "3.4.0",
     "faker": "4.1.0",
     "jest": "23.6.0",
     "nodemon": "1.18.4",
