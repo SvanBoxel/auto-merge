@@ -22,7 +22,7 @@
     "test": "jest && standard"
   },
   "dependencies": {
-    "cache-manager": "2.9.0",
+    "cache-manager": "3.1.0",
     "probot": "7.2.0"
   },
   "devDependencies": {
